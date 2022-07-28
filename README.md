@@ -1,5 +1,6 @@
 # todo_algoriza
-
+// videos
+// https://drive.google.com/drive/folders/1j4DmB4f0ZBp1a4_AzL2M3342jFjA9tBC?usp=sharing
 future delayed.
 
 ## Getting Started
