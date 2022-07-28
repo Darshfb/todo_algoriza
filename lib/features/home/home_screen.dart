@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                   ))
             ],
             title: const Text('Board',
-                style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                style: TextStyle(color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.w700)),
             toolbarHeight: 90.0,
           ),
           body: Column(

@@ -42,32 +42,7 @@ class AddTask extends StatelessWidget {
               color: Colors.black,
             )),
         title: const Text('Add task',
-            style: TextStyle(color: Colors.black, fontSize: 16.0)),
-        actions: [
-          BlocConsumer<TodoCubit, TodoState>(
-            listener: (context, state) {
-              // TODO: implement listener
-            },
-            builder: (context, state) {
-              var cubit = TodoCubit.get(context);
-              return TextButton(
-                  onPressed: () {
-                    cubit.showNotificationInTime(0);
-                    // await NotificationApi.showNotification(
-                    //   title : 'Mostafa',
-                    //   body : 'Here her a message',
-                    //   payload: 'mostafa.abs',
-                    //   id: 0
-                    // );
-                    //   navigateTo(context: context, widget: NotificationApp());
-                  },
-                  child: const Text(
-                    'show notification',
-                    style: TextStyle(color: Colors.black),
-                  ));
-            },
-          )
-        ],
+            style: TextStyle(color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.w700)),
         toolbarHeight: 90.0,
       ),
       body: Padding(

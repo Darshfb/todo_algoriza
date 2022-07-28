@@ -33,19 +33,8 @@ class ScheduleScreen extends StatelessWidget {
                   Icons.arrow_back_ios,
                   color: Colors.black,
                 )),
-            actions: [
-              IconButton(
-                  onPressed: () {
-                    // cubit.changeDate('2022-07-25');
-                    print(cubit.listByDate);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  )),
-            ],
             title: const Text('Schedule',
-                style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                style: TextStyle(color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.w700)),
             toolbarHeight: 90.0,
           ),
           body: Column(
@@ -96,7 +85,7 @@ class ScheduleScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 15.0),
                         child: SvgPicture.asset('images/blank.svg',
-                            width: 100.0, height: 120.0),
+                            width: 150.0, height: 200.0),
                       ),
                       const Padding(
                         padding: EdgeInsets.all(10.0),
@@ -138,7 +127,7 @@ class ScheduleScreen extends StatelessWidget {
                                   padding: const EdgeInsets.only(left: 16.0),
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       const SizedBox(
                                         height: 10.0,
@@ -147,13 +136,13 @@ class ScheduleScreen extends StatelessWidget {
                                         item['start'],
                                         style: TextStyle(
                                             color:
-                                                (item['status'] == 'completed')
-                                                    ? Colors.grey
-                                                    : Colors.white,
+                                            (item['status'] == 'completed')
+                                                ? Colors.grey
+                                                : Colors.white,
                                             decoration:
-                                                (item['status'] == 'completed')
-                                                    ? TextDecoration.lineThrough
-                                                    : TextDecoration.none),
+                                            (item['status'] == 'completed')
+                                                ? TextDecoration.lineThrough
+                                                : TextDecoration.none),
                                       ),
                                       const SizedBox(
                                         height: 8,
@@ -162,43 +151,21 @@ class ScheduleScreen extends StatelessWidget {
                                         item['title'],
                                         style: TextStyle(
                                             color:
-                                                (item['status'] == 'completed')
-                                                    ? Colors.grey
-                                                    : Colors.white,
+                                            (item['status'] == 'completed')
+                                                ? Colors.grey
+                                                : Colors.white,
                                             decoration:
-                                                (item['status'] == 'completed')
-                                                    ? TextDecoration.lineThrough
-                                                    : TextDecoration.none),
+                                            (item['status'] == 'completed')
+                                                ? TextDecoration.lineThrough
+                                                : TextDecoration.none),
                                       ),
                                     ],
                                   ),
                                 ),
-                                Checkbox(
-                                    checkColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    activeColor: Colors.black,
-                                    hoverColor: Colors.black,
-                                    fillColor:
-                                        MaterialStateProperty.all(Colors.white),
-                                    value: (item['status'] == 'completed')
-                                        ? true
-                                        : false,
-                                    onChanged: (value) {
-                                      cubit.updateDatabaseCompleted(
-                                          id: cubit.listByDate[index]['id'],
-                                          status: (cubit.listByDate[index]
-                                                      ['status'] ==
-                                                  "uncompleted")
-                                              ? "completed"
-                                              : "uncompleted");
-                                    },
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    )),
                                 Container(
                                   margin: const EdgeInsets.only(bottom: 50, right: 10),
                                   child: PopupMenuButton<Menu>(
-                                    color: Colors.red,
+                                      color: Colors.red,
                                       child: Icon(Icons.more_horiz,
                                           color: (item['status'] == 'completed')
                                               ? Colors.grey
@@ -211,45 +178,46 @@ class ScheduleScreen extends StatelessWidget {
                                           cubit.updateDatabaseCompleted(
                                               id: cubit.listByDate[index]['id'],
                                               status: (cubit.listByDate[index]
-                                                          ['status'] ==
-                                                      "uncompleted")
+                                              ['status'] ==
+                                                  "uncompleted")
                                                   ? "completed"
                                                   : "uncompleted");
                                         } else if (item.name == 'favorite') {
                                           cubit.updateDatabaseFav(
                                               id: cubit.listByDate[index]['id'],
                                               favorite: (cubit.listByDate[index]
-                                                          ['favorite'] ==
-                                                      "true")
+                                              ['favorite'] ==
+                                                  "true")
                                                   ? "false"
                                                   : "true");
                                         }
                                         print(item.name);
                                       },
                                       itemBuilder: (BuildContext context) =>
-                                          <PopupMenuEntry<Menu>>[
-                                            PopupMenuItem<Menu>(
-                                              value: Menu.completed,
-                                              child: Text((cubit.listByDate[index]
-                                                          ['status'] ==
-                                                      "uncompleted")
-                                                  ? "completed"
-                                                  : "uncompleted", style: const TextStyle(color: Colors.white)),
-                                            ),
-                                            const PopupMenuItem<Menu>(
-                                              value: Menu.favorite,
-                                              child: Text('Favorite', style: TextStyle(color: Colors.white),),
-                                            ),
-                                            const PopupMenuItem<Menu>(
-                                              value: Menu.delete,
-                                              child: Text('Delete', style: TextStyle(color: Colors.white)),
-                                            ),
-                                          ]),
+                                      <PopupMenuEntry<Menu>>[
+                                        PopupMenuItem<Menu>(
+                                          value: Menu.completed,
+                                          child: Text((cubit.listByDate[index]
+                                          ['status'] ==
+                                              "uncompleted")
+                                              ? "completed"
+                                              : "uncompleted", style: const TextStyle(color: Colors.white)),
+                                        ),
+                                        const PopupMenuItem<Menu>(
+                                          value: Menu.favorite,
+                                          child: Text('Favorite', style: TextStyle(color: Colors.white),),
+                                        ),
+                                        const PopupMenuItem<Menu>(
+                                          value: Menu.delete,
+                                          child: Text('Delete', style: TextStyle(color: Colors.white)),
+                                        ),
+                                      ]),
                                 ),
                               ],
                             ),
                           ),
                         );
+
                       },
                     ),
                   );
